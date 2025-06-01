@@ -62,7 +62,7 @@ public class PessoaController {
         repository.delete(getPessoa(id));
     }
     
-    @PutMapping("path/{id}")
+    @PutMapping("{id}")
     public Pessoa update(@PathVariable Long id, @RequestBody Pessoa pessoa) {
         log.info("Atualizando Pessoa com id: {}", id);
 

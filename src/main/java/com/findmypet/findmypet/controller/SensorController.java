@@ -17,14 +17,18 @@ import com.findmypet.findmypet.repository.SensorRepository;
 import com.findmypet.findmypet.specification.SensorSpecfication;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/sensor")
 @Slf4j
-@Cacheable(value = "pessoa")
+@Cacheable(value = "sensor")
 public class SensorController {
     
     @Autowired
@@ -45,6 +49,20 @@ public class SensorController {
     public Sensor get(@RequestParam Long id) {
         log.info("Buscando Sensor com id: {}", id);
         return getSensor(id);
+    }
+
+    @DeleteMapping("{id}")
+    public void destroy(@RequestParam Long id) {
+        log.info("Deletando Sensor com id: {}", id);
+        repository.delete(getSensor(id));
+    }
+
+    @PutMapping("{id}")
+    public Sensor update(@PathVariable Long id, @RequestBody Sensor sensor) {
+        log.info("Atualizando Sensor com id: {}", id);
+        getSensor(id);
+        sensor.setIdSensor(id);
+        return repository.save(sensor);
     }
 
     private Sensor getSensor(Long id) {
