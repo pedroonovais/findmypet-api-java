@@ -72,6 +72,6 @@ public class PessoaController {
     }
 
     private Pessoa getPessoa(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sensor " + id + " não encontrada"));
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pessoa " + id + " não encontrada"));
     }
 }

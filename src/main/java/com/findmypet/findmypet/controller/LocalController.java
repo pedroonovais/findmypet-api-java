@@ -18,59 +18,59 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.findmypet.findmypet.model.Animal;
-import com.findmypet.findmypet.model.AnimalFilter;
-import com.findmypet.findmypet.repository.AnimalRepository;
-import com.findmypet.findmypet.specification.AnimalSpecfication;
+import com.findmypet.findmypet.model.Local;
+import com.findmypet.findmypet.model.LocalFilter;
+import com.findmypet.findmypet.repository.LocalRepository;
+import com.findmypet.findmypet.specification.LocalSpecfication;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/animal")
+@RequestMapping("/local")
 @Slf4j
-@Cacheable(value = "animal")
-public class AnimalController {
+@Cacheable(value = "local")
+public class LocalController {
     
     @Autowired
-    private AnimalRepository repository;
+    private LocalRepository repository;
 
     @GetMapping
-    public Page<Animal> index(AnimalFilter filter, @PageableDefault(size = 10, sort = "idAnimal") Pageable page){
-        return repository.findAll(AnimalSpecfication.withFilters(filter), page);
+    public Page<Local> index(LocalFilter filter, @PageableDefault(size = 10, sort = "idLocal") Pageable page){
+        return repository.findAll(LocalSpecfication.withFilters(filter), page);
     }
     
     @PostMapping
     @Operation(responses = @ApiResponse(responseCode = "400"))
     @ResponseStatus(HttpStatus.CREATED)
-    public Animal create(@RequestBody Animal animal){
-        log.info("Cadastrando um Animal: {}", animal);
-        return repository.save(animal);
+    public Local create(@RequestBody Local local){
+        log.info("Cadastrando um local: {}", local);
+        return repository.save(local);
     }
 
     @GetMapping("{id}")
-    public Animal get(@RequestParam Long id) {
-        log.info("Buscando Animal com id: {}", id);
-        return getAnimal(id);
+    public Local get(@RequestParam Long id) {
+        log.info("Buscando Local com id: {}", id);
+        return getLocal(id);
     }
 
     @DeleteMapping("{id}")
     public void destroy(@RequestParam Long id) {
-        log.info("Deletando Animal com id: {}", id);
-        repository.delete(getAnimal(id));
+        log.info("Deletando Local com id: {}", id);
+        repository.delete(getLocal(id));
     }
     
     @PutMapping("{id}")
-    public Animal update(@PathVariable Long id, @RequestBody Animal animal) {
-        log.info("Atualizando Animal com id: {}", id);
+    public Local update(@PathVariable Long id, @RequestBody Local local) {
+        log.info("Atualizando local com id: {}", id);
 
-        getAnimal(id);
-        animal.setIdAnimal(id);
-        return repository.save(animal);
+        getLocal(id);
+        local.setIdLocal(id);
+        return repository.save(local);
     }
 
-    private Animal getAnimal(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Animal " + id + " não encontrada"));
+    private Local getLocal(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Local " + id + " não encontrada"));
     }
 }
