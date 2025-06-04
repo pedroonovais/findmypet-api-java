@@ -5,7 +5,7 @@ import com.findmypet.findmypet.model.ReportFilter;
 import com.findmypet.findmypet.repository.ReportRepository;
 import com.findmypet.findmypet.service.ReportService;
 import com.findmypet.findmypet.specification.ReportSpecification;
-import com.findmypet.findmypet.dto.ReportRequest;
+import com.findmypet.findmypet.dto.ReportDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -41,7 +41,7 @@ public class ReportController {
     @PostMapping
     @Operation(responses = @ApiResponse(responseCode = "400"))
     @ResponseStatus(HttpStatus.CREATED)
-    public Report create(@RequestBody ReportRequest request) {
+    public Report create(@RequestBody ReportDTO request) {
         log.info("Cadastrando Report: {}", request);
         return reportService.createReport(request);
     }
@@ -59,7 +59,7 @@ public class ReportController {
     }
 
     @PutMapping("{id}")
-    public Report update(@PathVariable Long id, @RequestBody ReportRequest request) {
+    public Report update(@PathVariable Long id, @RequestBody ReportDTO request) {
         log.info("Atualizando Report com id: {}", id);
         getReport(id);
         return reportService.updateReport(id, request);

@@ -1,11 +1,11 @@
-package com.findmypet.findmypet.model;
+package com.findmypet.findmypet.dto;
 
 import java.time.LocalDate;
 
 import lombok.Data;
 
 @Data
-public class ReportRequest {
+public class ReportDTO {
     private Long idPessoa;
     private Long idAnimal;
     private Long idLocal;

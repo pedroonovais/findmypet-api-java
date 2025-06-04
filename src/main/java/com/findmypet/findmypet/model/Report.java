@@ -55,9 +55,7 @@ public class Report {
     @Column(name = "tipo_desastre", length = 15)
     private String tipoDesastre;
 
-    @Column(name = "latitude", precision = 9, scale = 6)
     private Double latitude;
 
-    @Column(name = "longitude", precision = 9, scale = 6)
     private Double longitude;
 }
