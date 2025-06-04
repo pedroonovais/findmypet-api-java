@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,12 +22,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Adocao {
-    
+public class Report {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_adocao")
-    private Long idAdocao;
+    @Column(name = "id_report")
+    private Long idReport;
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa", nullable = false)
@@ -36,10 +37,27 @@ public class Adocao {
     @JoinColumn(name = "id_animal", nullable = false)
     private Animal animal;
 
-    @Column(name = "data_adocao")
-    @Temporal(TemporalType.DATE)
-    private LocalDate dataAdocao;
+    @ManyToOne
+    @JoinColumn(name = "id_local", nullable = false)
+    private Local local;
 
-    @Column(name = "status", length = 15)
-    private String status;
+    @ManyToOne
+    @JoinColumn(name = "id_sensor", nullable = false)
+    private Sensor sensor;
+
+    @Column(name = "data_report")
+    @Temporal(TemporalType.DATE)
+    private LocalDate dataReport;
+
+    @Column(name = "descricao", length = 255)
+    private String descricao;
+
+    @Column(name = "tipo_desastre", length = 15)
+    private String tipoDesastre;
+
+    @Column(name = "latitude", precision = 9, scale = 6)
+    private Double latitude;
+
+    @Column(name = "longitude", precision = 9, scale = 6)
+    private Double longitude;
 }

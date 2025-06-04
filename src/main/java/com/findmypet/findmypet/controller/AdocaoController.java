@@ -58,7 +58,7 @@ public class AdocaoController {
         log.info("Atualizando Adoção com id: {}", id);
 
         getAdocao(id);
-        adocao.setId(id);
+        adocao.setIdAdocao(id);
         return repository.save(adocao);
     }
 
