@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -50,13 +49,13 @@ public class AnimalController {
     }
 
     @GetMapping("{id}")
-    public Animal get(@RequestParam Long id) {
+    public Animal get(@PathVariable Long id) {
         log.info("Buscando Animal com id: {}", id);
         return getAnimal(id);
     }
 
     @DeleteMapping("{id}")
-    public void destroy(@RequestParam Long id) {
+    public void destroy(@PathVariable Long id) {
         log.info("Deletando Animal com id: {}", id);
         repository.delete(getAnimal(id));
     }
