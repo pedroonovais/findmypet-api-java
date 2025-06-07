@@ -34,7 +34,7 @@ public class ReportController {
     private ReportService reportService;
 
     @GetMapping
-    public Page<Report> index(ReportFilter filter, @PageableDefault(size = 10, sort = "id") Pageable page) {
+    public Page<Report> index(ReportFilter filter, @PageableDefault(size = 10, sort = "idReport") Pageable page) {
         return repository.findAll(ReportSpecification.withFilters(filter), page);
     }
 

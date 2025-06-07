@@ -9,8 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +24,6 @@ public class Report {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_report")
     private Long idReport;
 
     @ManyToOne
@@ -46,7 +43,6 @@ public class Report {
     private Sensor sensor;
 
     @Column(name = "data_report")
-    @Temporal(TemporalType.DATE)
     private LocalDate dataReport;
 
     @Column(name = "descricao", length = 255)
