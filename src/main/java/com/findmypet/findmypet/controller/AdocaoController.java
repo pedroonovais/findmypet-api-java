@@ -33,7 +33,7 @@ public class AdocaoController {
     private AdocaoService service;
 
     @GetMapping
-    public Page<Adocao> index(AdocaoFilter filter, @PageableDefault(size = 10, sort = "id") Pageable page) {
+    public Page<Adocao> index(AdocaoFilter filter, @PageableDefault(size = 10, sort = "idAdocao") Pageable page) {
         return repository.findAll(AdocaoSpecfication.withFilters(filter), page);
     }
 
