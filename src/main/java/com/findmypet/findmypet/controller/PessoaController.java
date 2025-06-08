@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +38,9 @@ public class PessoaController {
     @Autowired
     private PessoaRepository repository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping
     public Page<Pessoa> index(PessoaFilter filter, @PageableDefault(size = 10, sort = "idPessoa") Pageable page){
         return repository.findAll(PessoaSpecfication.withFilters(filter), page);
@@ -47,6 +51,7 @@ public class PessoaController {
     @ResponseStatus(HttpStatus.CREATED)
     public Pessoa create(@RequestBody Pessoa pessoa){
         log.info("Cadastrando uma pessoa: {}", pessoa);
+        pessoa.setSenha(passwordEncoder.encode(pessoa.getSenha()));
         return repository.save(pessoa);
     }
 
