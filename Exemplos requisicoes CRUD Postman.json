@@ -1,0 +1,636 @@
+{
+	"info": {
+		"_postman_id": "d690677c-8837-4174-b9f5-215f843b71b4",
+		"name": "FindMyPet Api Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20348320"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}"
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/pessoa",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://4.201.105.32:8080/pessoa/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://4.201.105.32:8080/pessoa/2",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Maria da Silva\",\r\n  \"cpf\": \"43264531844\",\r\n  \"telefone\": \"11987654321\",\r\n  \"tipoPessoa\": \"Adotante\",\r\n  \"email\": \"maria.silva@example.com\",\r\n  \"role\": \"ADMIN\",\r\n  \"senha\": \"senhaSegura123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/pessoa/",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Maria da Silva\",\r\n  \"cpf\": \"43264531844\",\r\n  \"telefone\": \"11987654321\",\r\n  \"tipoPessoa\": \"Adotante\",\r\n  \"email\": \"maria.silva@example.com\",\r\n  \"role\": \"ADMIN\",\r\n  \"senha\": \"senhaSegura123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/pessoa/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}"
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/report",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}"
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/report/3",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0NTUzNTh9.YxWaimZdNCn66ZL5HcWJqdUwCLBLVWvfAwBbGA3sPuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://4.201.105.32:8080/report/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://4.201.105.32:8080/report/2",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/report/2",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"report",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Animais",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}"
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/animal",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPessoa\": 1,\r\n  \"idAnimal\": 2,\r\n  \"idLocal\": 1,\r\n  \"idSensor\": 2,\r\n  \"descricao\": \"Enchente atingiu o bairro central. Ruas alagadas.\",\r\n  \"tipoDesastre\": \"Enchente\",\r\n  \"latitude\": -23.55052,\r\n  \"longitude\": -46.633308,\r\n  \"dataReport\": \"2025-06-08\"\r\n}"
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/animal/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"animal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0NTUzNTh9.YxWaimZdNCn66ZL5HcWJqdUwCLBLVWvfAwBbGA3sPuo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeAnimal\": \"Rex 2\",\r\n  \"especieAnimal\": \"Cachorro\",\r\n  \"porte\": \"Grande\",\r\n  \"idadeEstimada\": 3,\r\n  \"tipoAnimal\": \"Resgatado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/animal/",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"animal",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://4.201.105.32:8080/animal/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"animal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJkYXZpQGZpYXAuY29tLmJyIiwicm9sZSI6IlVTRVIiLCJleHAiOjE3NDk0Nzg3MDl9.efTJxiLStAav-vlAmxQJq7FcbzbkcLOuS46br7Lu9Pc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeAnimal\": \"Rex 2\",\r\n  \"especieAnimal\": \"Cachorro\",\r\n  \"porte\": \"Grande\",\r\n  \"idadeEstimada\": 3,\r\n  \"tipoAnimal\": \"Resgatado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/animal/1",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"animal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"davi@fiap.com.br\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://4.201.105.32:8080/login",
+							"protocol": "http",
+							"host": [
+								"4",
+								"201",
+								"105",
+								"32"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
