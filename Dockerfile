@@ -4,8 +4,6 @@ RUN useradd -m appuser
  
 WORKDIR /app
  
-COPY --chown=appuser:appuser findmypet-api-java.jar app.jar
- 
 USER appuser
  
 ENV APP_ENV=production
