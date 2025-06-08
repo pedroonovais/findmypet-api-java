@@ -1,11 +1,15 @@
-FROM eclipse-temurin:17-jdk-alpine
-
+FROM openjdk:17-jdk-slim
+ 
+RUN useradd -m appuser
+ 
 WORKDIR /app
-
-COPY target/seu-app.jar app.jar
-
-ENV SPRING_PROFILES_ACTIVE=prod
-
+ 
+COPY --chown=appuser:appuser minha-api.jar app.jar
+ 
+USER appuser
+ 
+ENV APP_ENV=production
+ 
 EXPOSE 8080
-
+ 
 ENTRYPOINT ["java", "-jar", "app.jar"]
