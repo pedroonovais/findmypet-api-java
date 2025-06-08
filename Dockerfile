@@ -4,7 +4,7 @@ RUN useradd -m appuser
  
 WORKDIR /app
  
-COPY --chown=appuser:appuser minha-api.jar app.jar
+COPY --chown=appuser:appuser findmypet-api-java.jar app.jar
  
 USER appuser
  
