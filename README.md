@@ -16,29 +16,29 @@ docker compose up -d --build
 
 ## 📦 Deploy passo a passo
 1. Clone o repositório.  
-2. Configure variáveis de ambiente no `docker-compose.yml`.  
+2. Configure variaveis de ambiente no `docker-compose.yml`.  
 3. Rode `docker compose up -d`.  
 4. Teste CRUD via Postman ou browser.  
 
 ## 🛠 Troubleshooting
-- **Erro de conexão DB** → Verifique usuário/senha e se o `db` está rodando.  
-- **API não sobe** → Checar logs com `docker compose logs -f app`.  
+- **Erro de conexao DB** → Verifique usuario/senha e se o `db` esta rodando.  
+- **API nao sobe** → Checar logs com `docker compose logs -f app`.  
 
 ## 📊 Arquitetura
 
 ### Arquitetura Atual
 ```mermaid
 graph TD
-    A[Usuário] --> B[Aplicação Java (local)]
-    B --> C[Banco de Dados (instalado na máquina)]
+    A[Usuario] --> B[Aplicacao Java Local]
+    B --> C[Banco de Dados Local]
 ```
 
 ### Arquitetura Futura
 ```mermaid
 graph TD
-    A[Usuário] --> B[Container: API Java]
-    B --> D[Container: MySQL]
-    subgraph Docker Compose
+    A[Usuario] --> B[Container API Java]
+    B --> D[Container MySQL]
+    subgraph DockerCompose
         B
         D
     end
